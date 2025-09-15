@@ -7,7 +7,6 @@ using namespace std;
 
 int main()
 {
-    int num_employees = 0;
     int new_num_employees;
     int chois;
     vector<Employee> employees;
@@ -46,7 +45,6 @@ int main()
                 employees.push_back(emp);
                 cout << "\nСотрудник создан\n";
             }
-            num_employees = new_num_employees;
             break;
         case 3:
             if (employees.empty())
@@ -57,9 +55,9 @@ int main()
 
             cout << "\n=== ИНФОРМАЦИЯ О СОТРУДНИКАХ ===\n";
 
-            for (int i = 0; i < employees.size(); i++)
+            for (const auto &employee : employees)
             {
-                employees[i].PutEmploy();
+                employee.PutEmploy();
                 cout << "------------------------\n";
             }
             break;
