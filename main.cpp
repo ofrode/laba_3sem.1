@@ -56,13 +56,11 @@ int main()
         case 4:
             delete[] employees;
             return 0;
-            break;
         default:
             cout << "\nОшибка\n";
             delete[] employees;
             system("pause");
             return 0;
-            break;
         }
     }
 }

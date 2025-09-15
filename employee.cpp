@@ -30,24 +30,24 @@ void Employee::GetEmploy()
     switch (employee_type)
     {
     case 'l':
-        type = LABORANT;
+        type = Etype::LABORANT;
         break;
     case 's':
-        type = SECRETARY;
+        type = Etype::SECRETARY;
         break;
     case 'm':
-        type = MANAGER;
+        type = Etype::MANAGER;
         break;
     case 'd':
-        type = DIRECTOR;
+        type = Etype::DIRECTOR;
         break;
     default:
-        type = LABORANT;
+        type = Etype::LABORANT;
         break;
     }
 }
 
-void Employee::PutEmploy()
+void Employee::PutEmploy () const
 {
     cout << "\nИнформация о сотруднике:" << endl;
     cout << "Номер: " << number << endl;
@@ -57,16 +57,16 @@ void Employee::PutEmploy()
 
     switch (type)
     {
-    case LABORANT:
+    case Etype::LABORANT:
         cout << "лаборант";
         break;
-    case SECRETARY:
+    case Etype::SECRETARY:
         cout << "секретарь";
         break;
-    case MANAGER:
+    case Etype::MANAGER:
         cout << "менеджер";
         break;
-    case DIRECTOR:
+    case Etype::DIRECTOR:
         cout << "директор";
         break;
     }

@@ -1,6 +1,6 @@
 #pragma once
 
-enum etype
+enum class Etype
 {
     LABORANT,
     SECRETARY,
@@ -21,9 +21,9 @@ private:
     int number;
     float salary;
     date hire_date;
-    etype type;
+    Etype type;
 
 public:
     void GetEmploy();
-    void PutEmploy();
+    void PutEmploy () const;
 };
