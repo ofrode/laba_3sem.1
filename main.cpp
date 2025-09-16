@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    int num_employees;
+    int num_employees = 0;
     int new_num_employees;
     int chois;
     Employee *employees;
