@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include "check.h"
 #include "employee.h"
 
@@ -7,9 +6,10 @@ using namespace std;
 
 int main()
 {
+    int num_employees;
     int new_num_employees;
     int chois;
-    vector<Employee> employees;
+    Employee *employees;
     while (true)
     {
         cout << "Лабораторная работа №1\n\n";
@@ -22,11 +22,11 @@ int main()
         switch (chois)
         {
         case 1:
-            if (employees.empty())
+            if (num_employees == 0)
             {
-                Employee emp;
-                emp.GetEmploy();
-                employees.push_back(emp);
+                num_employees = 1;
+                employees = new Employee[num_employees];
+                employees[num_employees - 1].GetEmploy();
                 cout << "\nСотрудник создан\n";
             }
             else
@@ -37,33 +37,35 @@ int main()
         case 2:
             cout << "\nВведите количество сотрудников которых хотите добавить: ";
             new_num_employees = CheckRange(1, 1000000);
-            employees.reserve(employees.size() + new_num_employees);
-            for (int i = 0; i < new_num_employees; i++)
+            employees = new Employee[num_employees + new_num_employees];
+            for (int i = num_employees; i < new_num_employees + num_employees; i++)
             {
-                Employee emp;
-                emp.GetEmploy();
-                employees.push_back(emp);
+                employees[i].GetEmploy();
                 cout << "\nСотрудник создан\n";
             }
+            num_employees += new_num_employees;
             break;
         case 3:
-            if (employees.empty())
+            cout << "\n=== ИНФОРМАЦИЯ О СОТРУДНИКАХ ===\n";
+            if (num_employees == 0)
             {
-                cout << "\nСписок сотрудников пуст!\n";
+                cout << "Нет сотрудников\n";
                 break;
             }
-
-            cout << "\n=== ИНФОРМАЦИЯ О СОТРУДНИКАХ ===\n";
-
-            for (const auto &employee : employees)
+            for (int i = 0; i < num_employees; i++)
             {
-                employee.PutEmploy();
+                employees[i].PutEmploy();
                 cout << "------------------------\n";
             }
             break;
         case 4:
+            if (num_employees != 0)
+            {
+                delete[] employees;
+            }
             return 0;
         default:
+            delete[] employees;
             cout << "\nОшибка\n";
             system("pause");
             return 0;
