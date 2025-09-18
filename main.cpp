@@ -6,11 +6,11 @@ using namespace std;
 
 int main()
 {
-    int num_employees = 0;
-    int new_num_employees;
+    int numEmployees = 0;
+    int newNumEmployees;
     int chois;
     Employee *employees;
-    Employee *new_employees;
+    Employee *newEmployees;
     while (true)
     {
         cout << "Лабораторная работа №1\n\n";
@@ -19,15 +19,15 @@ int main()
         cout << "3 - Просмотреть список сотрудников\n";
         cout << "4 - Выйти из программы\n";
         cout << "Ваш выбор: ";
-        chois = CheckRange(1, 4);
+        chois = checkRange(1, 4);
         switch (chois)
         {
         case 1:
-            if (num_employees == 0)
+            if (numEmployees == 0)
             {
-                num_employees = 1;
-                employees = new Employee[num_employees];
-                employees[num_employees - 1].GetEmploy();
+                numEmployees = 1;
+                employees = new Employee[numEmployees];
+                employees[numEmployees - 1].getEmploy();
                 cout << "\nСотрудник создан\n";
             }
             else
@@ -37,36 +37,36 @@ int main()
             break;
         case 2:
             cout << "\nВведите количество сотрудников которых хотите добавить: ";
-            new_num_employees = CheckRange(1, 1000000);
-            new_employees = new Employee[num_employees + new_num_employees];
-            for(int i = 0 ; i < num_employees; i++)
+            newNumEmployees = checkRange(1, 1000000);
+            newEmployees = new Employee[numEmployees + newNumEmployees];
+            for (int i = 0; i < numEmployees; i++)
             {
-                new_employees[i] = Employee(employees[i]);
+                newEmployees[i] = Employee(employees[i]);
             }
             delete[] employees;
-            employees = new_employees;
-            for (int i = num_employees; i < new_num_employees + num_employees; i++)
+            employees = newEmployees;
+            for (int i = numEmployees; i < newNumEmployees + numEmployees; i++)
             {
-                employees[i].GetEmploy();
+                employees[i].getEmploy();
                 cout << "\nСотрудник создан\n";
             }
-            num_employees += new_num_employees;
+            numEmployees += newNumEmployees;
             break;
         case 3:
             cout << "\n=== ИНФОРМАЦИЯ О СОТРУДНИКАХ ===\n";
-            if (num_employees == 0)
+            if (numEmployees == 0)
             {
                 cout << "Нет сотрудников\n";
                 break;
             }
-            for (int i = 0; i < num_employees; i++)
+            for (int i = 0; i < numEmployees; i++)
             {
-                employees[i].PutEmploy();
+                employees[i].putEmploy();
                 cout << "------------------------\n";
             }
             break;
         case 4:
-            if (num_employees != 0)
+            if (numEmployees != 0)
             {
                 delete[] employees;
             }

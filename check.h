@@ -1,6 +1,6 @@
 #pragma once
 
-int GetInput(int);
-float GetInput(float);
-int CheckRange(int min, int max);
-float CheckRange(float min, float max);
+int getInput(int);
+float getInput(float);
+int checkRange(int min, int max);
+float checkRange(float min, float max);

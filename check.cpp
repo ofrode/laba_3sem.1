@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int GetInput(int)
+int getInput(int)
 {
     int value;
     while (true)
@@ -32,7 +32,7 @@ int GetInput(int)
     }
 }
 
-float GetInput(float)
+float getInput(float)
 {
     float value;
 
@@ -61,12 +61,12 @@ float GetInput(float)
     }
 }
 
-int CheckRange(int min, int max)
+int checkRange(int min, int max)
 {
     int value;
     while (true)
     {
-        value = GetInput(0);
+        value = getInput(0);
         if (value <= max && value >= min)
         {
             return value;
@@ -75,12 +75,12 @@ int CheckRange(int min, int max)
     }
 }
 
-float CheckRange(float min, float max)
+float checkRange(float min, float max)
 {
     float value;
     while (true)
     {
-        value = GetInput(0.0f);
+        value = getInput(0.0f);
         if (value <= max && value >= min)
         {
             return value;

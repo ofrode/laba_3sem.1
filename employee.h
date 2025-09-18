@@ -20,11 +20,11 @@ class Employee
 private:
     int number = 0;
     float salary = 0.0f;
-    date hire_date {1, 1, 2000};
+    date hireDate{1, 1, 2000};
     Etype type = Etype::LABORANT;
 
 public:
     Employee() = default;
-    void GetEmploy();
-    void PutEmploy () const;
+    void getEmploy();
+    void putEmploy() const;
 };

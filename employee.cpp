@@ -4,30 +4,30 @@
 
 using namespace std;
 
-void Employee::GetEmploy()
+void Employee::getEmploy()
 {
     cout << "Введите номер сотрудника: ";
-    number = CheckRange(1, 1000000);
+    number = checkRange(1, 1000000);
 
     cout << "Введите оклад сотрудника: ";
-    salary = CheckRange(0.0f, 1000000.0f);
+    salary = checkRange(0.0f, 1000000.0f);
 
     cout << "Введите дату приема на работу (день месяц год): ";
-    hire_date.day = CheckRange(1, 31);
-    hire_date.month = CheckRange(1, 12);
-    hire_date.year = CheckRange(1900, 2011);
+    hireDate.day = checkRange(1, 31);
+    hireDate.month = checkRange(1, 12);
+    hireDate.year = checkRange(1900, 2011);
 
-    char employee_type;
+    char employeeType;
     cout << "Введите тип сотрудника (l - лаборант, s - секретарь, m - менеджер, d - директор): ";
     while (true)
     {
-        cin >> employee_type;
-        if (employee_type == 'l' || employee_type == 's' || employee_type == 'm' || employee_type == 'd')
+        cin >> employeeType;
+        if (employeeType == 'l' || employeeType == 's' || employeeType == 'm' || employeeType == 'd')
             break;
         cout << "Ошибка. Попробуйте еще раз.\n";
     }
 
-    switch (employee_type)
+    switch (employeeType)
     {
     case 'l':
         type = Etype::LABORANT;
@@ -47,12 +47,12 @@ void Employee::GetEmploy()
     }
 }
 
-void Employee::PutEmploy () const
+void Employee::putEmploy() const
 {
     cout << "\nИнформация о сотруднике:" << endl;
     cout << "Номер: " << number << endl;
     cout << "Оклад: " << salary << endl;
-    cout << "Дата приема на работу: " << hire_date.day << "." << hire_date.month << "." << hire_date.year << endl;
+    cout << "Дата приема на работу: " << hireDate.day << "." << hireDate.month << "." << hireDate.year << endl;
     cout << "Должность: ";
 
     switch (type)
