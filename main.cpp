@@ -10,6 +10,7 @@ int main()
     int new_num_employees;
     int chois;
     Employee *employees;
+    Employee *new_employees;
     while (true)
     {
         cout << "Лабораторная работа №1\n\n";
@@ -37,7 +38,13 @@ int main()
         case 2:
             cout << "\nВведите количество сотрудников которых хотите добавить: ";
             new_num_employees = CheckRange(1, 1000000);
-            employees = new Employee[num_employees + new_num_employees];
+            new_employees = new Employee[num_employees + new_num_employees];
+            for(int i = 0 ; i < num_employees; i++)
+            {
+                new_employees[i] = Employee(employees[i]);
+            }
+            delete[] employees;
+            employees = new_employees;
             for (int i = num_employees; i < new_num_employees + num_employees; i++)
             {
                 employees[i].GetEmploy();

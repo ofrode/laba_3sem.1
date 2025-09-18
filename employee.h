@@ -24,6 +24,8 @@ private:
     Etype type;
 
 public:
+    Employee();
+    Employee(const Employee& other);
     void GetEmploy();
     void PutEmploy () const;
 };
