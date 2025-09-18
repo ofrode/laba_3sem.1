@@ -4,17 +4,6 @@
 
 using namespace std;
 
-Employee::Employee() 
-    : number(0), salary(0.0f), hire_date{1, 1, 2000}, type(Etype::LABORANT) 
-{}
-
-Employee::Employee(const Employee& other) 
-    : number(other.number), 
-      salary(other.salary), 
-      hire_date(other.hire_date), 
-      type(other.type) 
-{}
-
 void Employee::GetEmploy()
 {
     cout << "Введите номер сотрудника: ";
