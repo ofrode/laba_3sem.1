@@ -1,4 +1,4 @@
-#include "check.h"
+#include "../headers/check.h"
 #include <iostream>
 #include <limits>
 

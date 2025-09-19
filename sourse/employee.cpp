@@ -1,6 +1,6 @@
-#include "employee.h"
+#include "../headers/employee.h"
 #include <iostream>
-#include "check.h"
+#include "../headers/check.h"
 
 using namespace std;
 
