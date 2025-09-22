@@ -45,7 +45,7 @@ void addMoreEmployees(int &numEmployees, Employee *&employees)
     numEmployees += newNumEmployees;
 }
 
-void displayEmployees(int &numEmployees, Employee *&employees)
+void displayEmployees(const int numEmployees, Employee *&employees)
 {
     cout << "\n=== ИНФОРМАЦИЯ О СОТРУДНИКАХ ===\n";
     if (numEmployees == 0)
