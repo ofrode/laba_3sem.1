@@ -1,90 +1,69 @@
+#include "../headers/function.h"
 #include "../headers/check.h"
-#include <iostream>
+#include "../headers/employee.h"
 #include <limits>
+#include <iostream>
 
 using namespace std;
 
-int getInput(int)
+template <typename T>
+T getValidatedInput(const string &errorMessage)
 {
-    int value;
+    T value;
     while (true)
     {
         cin >> value;
+
         if (cin.fail())
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Ошибка! Введите целое число." << endl;
+            cout << "Ошибка! " << errorMessage << endl;
+        }
+        else if (cin.peek() != '\n')
+        {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Ошибка! Введите только число без лишних символов." << endl;
         }
         else
         {
-            if (cin.peek() != '\n')
-            {
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Ошибка! Введите только целое число без лишних символов." << endl;
-            }
-            else
-            {
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                return value;
-            }
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            return value;
         }
     }
 }
 
+int getInput(int)
+{
+    return getValidatedInput<int>("Введите целое число.");
+}
+
 float getInput(float)
 {
-    float value;
+    return getValidatedInput<float>("Введите число.");
+}
 
+template <typename T>
+T validateRange(T min, T max, const string &typeName)
+{
+    T value;
     while (true)
     {
-        cin >> value;
-        if (cin.fail())
+        value = getInput(T());
+        if (value >= min && value <= max)
         {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Ошибка! Введите целое число." << endl;
+            return value;
         }
-        else
-        {
-            if (cin.peek() != '\n')
-            {
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Ошибка! Введите только целое число без лишних символов." << endl;
-            }
-            else
-            {
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                return value;
-            }
-        }
+        cout << "Ошибка. Введите " << typeName << " в диапазоне от " << min << " до " << max << ". Попробуйте еще раз.\n";
     }
 }
 
 int checkRange(int min, int max)
 {
-    int value;
-    while (true)
-    {
-        value = getInput(0);
-        if (value <= max && value >= min)
-        {
-            return value;
-        }
-        cout << "Ошибка. Попробуйте еще раз.\n";
-    }
+    return validateRange(min, max, "целое число");
 }
 
 float checkRange(float min, float max)
 {
-    float value;
-    while (true)
-    {
-        value = getInput(0.0f);
-        if (value <= max && value >= min)
-        {
-            return value;
-        }
-        cout << "Ошибка. Попробуйте еще раз.\n";
-    }
+    return validateRange(min, max, "число");
 }
