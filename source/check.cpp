@@ -1,6 +1,4 @@
-#include "../headers/function.h"
 #include "../headers/check.h"
-#include "../headers/employee.h"
 #include <limits>
 #include <iostream>
 

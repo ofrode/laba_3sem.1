@@ -1,4 +1,3 @@
-#include "../headers/function.h"
 #include "../headers/check.h"
 #include "../headers/employee.h"
 #include <iostream>
@@ -7,6 +6,8 @@ using namespace std;
 
 void Employee::getEmploy()
 {
+    using enum Etype;
+    
     cout << "Введите номер сотрудника: ";
     number = checkRange(1, 1000000);
 
@@ -31,25 +32,27 @@ void Employee::getEmploy()
     switch (employeeType)
     {
     case 'l':
-        type = Etype::LABORANT;
+        type = LABORANT;
         break;
     case 's':
-        type = Etype::SECRETARY;
+        type = SECRETARY;
         break;
     case 'm':
-        type = Etype::MANAGER;
+        type = MANAGER;
         break;
     case 'd':
-        type = Etype::DIRECTOR;
+        type = DIRECTOR;
         break;
     default:
-        type = Etype::LABORANT;
+        type = LABORANT;
         break;
     }
 }
 
 void Employee::putEmploy() const
 {
+    using enum Etype;
+
     cout << "\nИнформация о сотруднике:" << endl;
     cout << "Номер: " << number << endl;
     cout << "Оклад: " << salary << endl;
@@ -58,16 +61,16 @@ void Employee::putEmploy() const
 
     switch (type)
     {
-    case Etype::LABORANT:
+    case LABORANT:
         cout << "лаборант";
         break;
-    case Etype::SECRETARY:
+    case SECRETARY:
         cout << "секретарь";
         break;
-    case Etype::MANAGER:
+    case MANAGER:
         cout << "менеджер";
         break;
-    case Etype::DIRECTOR:
+    case DIRECTOR:
         cout << "директор";
         break;
     }
